@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Home</title>
+    <title>Diálogo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap" rel="stylesheet">
@@ -57,35 +57,35 @@
                 <li id="audio-2"><span class="doctor">Doctor:</span> Good morning Sash. How can I help you?</li>
                 <li id="audio-3"><span class="patient">Patient:</span> Well, I've been feeling sick and I have a terrible headache. </li>
                 <li id="audio-4"><span class="doctor">Doctor:</span> Do you have any fever?</li>
-                <li id="audio-5"><span class="patient">Patient:</span> I think so</li>
-                <li id="audio-6"><span class="doctor">Doctor:</span> You should stay at home and take aspirin and water</li>
-                <li id="audio-7"><span class="patient">Patient:</span> I'd love to but I have to work</li>
-                <li id="audio-8"><span class="doctor">Doctor:</span> Im going to indicate that you have to stay home during three days</li>
+                <li id="audio-5"><span class="patient">Patient:</span> I think so.</li>
+                <li id="audio-6"><span class="doctor">Doctor:</span> You should stay at home and take aspirin and water.</li>
+                <li id="audio-7"><span class="patient">Patient:</span> I'd love to but I have to work.</li>
+                <li id="audio-8"><span class="doctor">Doctor:</span> I'm going to indicate that you have to stay home during three days.</li>
                 <li id="audio-9"><span class="patient">Patient:</span> Perfect.</li>
-                <li id="audio-10"><span class="doctor">Doctor:</span> You have a high fever, you can not work feeling like that</li>
+                <li id="audio-10"><span class="doctor">Doctor:</span> You have a high fever, you can not work feeling like that.</li>
                 <li id="audio-11"><span class="doctor">Doctor:</span> Are you allergic to any medications?</li>
                 <li id="audio-12"><span class="patient">Patient:</span> No, I’m not.</li>
-                <li id="audio-13"><span class="doctor">Doctor:</span> I am going to prescribe antibiotics since you have an ear infection</li>
-                <li id="audio-14"><span class="patient">Patient:</span> Thanks doctor</li>
-                <li id="audio-15"><span class="doctor">Doctor:</span> You will feel a relief in 3 days or less</li>
+                <li id="audio-13"><span class="doctor">Doctor:</span> I am going to prescribe antibiotics since you have an ear infection.</li>
+                <li id="audio-14"><span class="patient">Patient:</span> Thanks doctor.</li>
+                <li id="audio-15"><span class="doctor">Doctor:</span> You will feel a relief in 3 days or less.</li>
                 <li id="audio-16"><span class="patient">Patient:</span> Thank you doctor. Have a good day.</li>
             </ul>
         </div>
 
         <script>
             var audio = new Audio();
-            // add click event to all li elements
             var liElements = document.querySelectorAll('.dialogo li');
             for (var i = 0; i < liElements.length; i++) {
                 liElements[i].addEventListener('click', function () {
+                    line = this;
+                    for (var i = 0; i < liElements.length; i++) {
+                        liElements[i].style.fontWeight = 'normal';
+                    }
                     audio.src = 'audio/' + this.id + '.mp3';
                     audio.play();
-
-                    // higlight with a blink effect the clicked li element while audio is playing
-                    var that = this;
-                    that.style.fontWeight = 'bold';
+                    line.style.fontWeight = 'bold';
                     audio.onended = function () {
-                        that.style.fontWeight = 'normal';
+                        line.style.fontWeight = 'normal';
                     }
 
                 });
