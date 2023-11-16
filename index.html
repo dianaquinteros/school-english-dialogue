@@ -10,13 +10,13 @@
             font-family: 'Playpen Sans', cursive;
             text-align: center;
             color: rgb(255, 136, 156);
-            font-size: 72px;
+            font-size: 2vw;
         }
 
         .dialogo li {
             cursor: pointer;
             font-family: 'Playpen Sans', cursive;
-            font-size: 72px;
+            font-size: 2vw;
         }
 
         .dialogo li:hover {
@@ -45,6 +45,13 @@
             list-style-type: none;
         }
 
+        @media only screen and (max-width: 900px) {
+
+            .dialogo li,
+            h1 {
+                font-size: 72px;
+            }
+        }
     </style>
 </head>
 
